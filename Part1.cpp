@@ -214,14 +214,14 @@ int main()
 			D1 = (char*)VirtualAlloc((void*)AdFile4,1024, MEM_RESERVE | MEM_COMMIT, PAGE_NOACCESS);
 			if (D1!= NULL)
 			{
-				if (VirtualProtect((void*)D, 1024, PAGE_EXECUTE_READWRITE, &OldP)) {
+				if (VirtualProtect((void*)D1, 1024, PAGE_EXECUTE_READWRITE, &OldP)) {
 					cout << "Новая защита установлена" << endl;
-					MyVirtualQuery((void*)D);
+					MyVirtualQuery((void*)D1);
 					cout << "New Protect:" << hex << "PAGE_EXECUTE_READWRITE" << endl;
 					cout << "Old Protect:" << hex << "PAGE_NOACCESS" << endl;
-					D = str1;
-					cout << D << endl;
-					cout << "Адрес участка памяти с новой защитой " <<hex<< &D << dec<<endl;
+					D1 = str1;
+					cout << D1 << endl;
+					cout << "Адрес участка памяти с новой защитой " <<hex<< &D1 << dec<<endl;
 				}
 				else
 					cout << "Произошла ошибка " << GetLastError << endl;
